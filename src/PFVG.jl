@@ -12,7 +12,7 @@ julia> runPFVG()
 ```
 """
 function runPFVG()
-    dirlc = "src/data/"
+    dirlc = joinpath(@__DIR__, "data/")
     lc = [dirlc*"bj.txt",dirlc*"vj.txt",dirlc*"rj.txt",dirlc*"ij.txt"]
     filter_vec = ["B","V","R","I"]
     B     = readdlm(lc[1])[:, 1:3]
@@ -92,7 +92,7 @@ julia> PlotPFVG3C120()
 ```
 """
 function PlotPFVGdist()
-    dirlc = "src/data/"
+    dirlc = joinpath(@__DIR__, "data/")
     distfiles = [dirlc*"PFVG.dist.3C120.B.txt",dirlc*"PFVG.dist.3C120.V.txt",dirlc*"PFVG.dist.3C120.R.txt",dirlc*"PFVG.dist.3C120.I.txt"]
     color_vec  = ["blue","green","brown","red"]
     filter_vec = ["B","V","R","I"]
@@ -142,7 +142,7 @@ julia> Check3C120()
 """
 
 function Check3C120()
-    dirlc = "src/data/"
+    dirlc = joinpath(@__DIR__, "data/")
     #read and plot lc's
     lc = [dirlc*"bj.txt",dirlc*"vj.txt",dirlc*"rj.txt",dirlc*"ij.txt"]
     filtervec = ["B","V","R","I"]
