@@ -1,4 +1,4 @@
-# using PyPlot, Printf, DelimitedFiles
+
 include("mathlc.jl")
 include("setup_for_centroid_julia.jl")
 # @pyimport matplotlib.font_manager as fm --- marked affected locations with "--- disabled because of problem with @pyimport"
