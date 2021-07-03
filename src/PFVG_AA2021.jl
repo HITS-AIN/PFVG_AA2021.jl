@@ -1,6 +1,6 @@
 module PFVG_AA2021
 
-    using PyPlot, PyCall, Printf, DelimitedFiles, Distances
+    using PyPlot, PyCall, Printf, DelimitedFiles, Distances, StatsBase, ProbabilisticFluxVariationGradient
 
     include("PFVG.jl")
 
