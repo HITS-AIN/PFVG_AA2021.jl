@@ -1,7 +1,7 @@
-using PyPlot, PyCall, Printf, DelimitedFiles
+# using PyPlot, Printf, DelimitedFiles
 include("mathlc.jl")
-include("setup_for_centroid.jl")
-@pyimport matplotlib.font_manager as fm
+include("setup_for_centroid_julia.jl")
+# @pyimport matplotlib.font_manager as fm --- marked affected locations with "--- disabled because of problem with @pyimport"
 
 """
 Run PFVG method
@@ -12,7 +12,7 @@ julia> runPFVG()
 ```
 """
 function runPFVG()
-    dirlc = "./data/"
+    dirlc = "src/data/"
     lc = [dirlc*"bj.txt",dirlc*"vj.txt",dirlc*"rj.txt",dirlc*"ij.txt"]
     filter_vec = ["B","V","R","I"]
     B     = readdlm(lc[1])[:, 1:3]
@@ -49,7 +49,7 @@ function runPFVG()
     end
 
     #start PVFG
-    @eval using ProbabilisticFluxVariationGradient
+    # @eval using ProbabilisticFluxVariationGradient
 
     flx = data[:,2,:]
     sig = data[:,3,:]
@@ -92,7 +92,7 @@ julia> PlotPFVG3C120()
 ```
 """
 function PlotPFVGdist()
-    dirlc = "./data/"
+    dirlc = "src/data/"
     distfiles = [dirlc*"PFVG.dist.3C120.B.txt",dirlc*"PFVG.dist.3C120.V.txt",dirlc*"PFVG.dist.3C120.R.txt",dirlc*"PFVG.dist.3C120.I.txt"]
     color_vec  = ["blue","green","brown","red"]
     filter_vec = ["B","V","R","I"]
@@ -101,7 +101,7 @@ function PlotPFVGdist()
     snvec  = [46;82;87;112] #Light curves S/N
 
 
-    prop = fm.FontProperties(size=12)
+    # prop = fm.FontProperties(size=12) --- disabled because of problem with @pyimport
     pygui(true)
     fig  = figure(1,figsize=(15,15))
 
@@ -126,7 +126,7 @@ function PlotPFVGdist()
         ax.set_xlabel(L"$f_{host}$ "*filter_vec[i]*" [mJy]",fontsize=15)
         ax.set_ylabel("Frequency",fontsize=15)
         ax.tick_params(direction="in",labelsize=14)
-        ax.legend(loc="upper left",prop=prop)
+        ax.legend(loc="upper left")#,prop=prop) --- disabled because of problem with @pyimport
     end
     savefig(dirlc*"PFVG3C120.pdf",bbox_inches="tight")
 end
@@ -142,7 +142,7 @@ julia> Check3C120()
 """
 
 function Check3C120()
-    dirlc = "./data/"
+    dirlc = "src/data/"
     #read and plot lc's
     lc = [dirlc*"bj.txt",dirlc*"vj.txt",dirlc*"rj.txt",dirlc*"ij.txt"]
     filtervec = ["B","V","R","I"]
@@ -176,7 +176,7 @@ function Check3C120()
 
 
     #ploting
-    prop = fm.FontProperties(size=15)
+    #prop = fm.FontProperties(size=15) --- disabled because of problem with @pyimport
     figure(1)
     clf()
 
@@ -189,7 +189,7 @@ function Check3C120()
 
         plot(obsdays,flux,ls="", marker=".", ms=4,color=colorvec[i],label=filtervec[i])
         errorbar(obsdays, flux, yerr=errflx, fmt="o", ms=4, color=colorvec[i])
-        legend(loc="upper right",prop=prop)
+        legend(loc="upper right")#,prop=prop) --- disabled because of problem with @pyimport
 
     end
     plot(sametBV,sflxB,ls="", marker="o", ms=8,color="black")
