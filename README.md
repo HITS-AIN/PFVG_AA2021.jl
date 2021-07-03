@@ -1,4 +1,4 @@
-# PFVG-AA2021
+# PFVG_AA2021.jl
 
 Application of the probabilistic flux variation gradient (PFVG) method, as presented
 in Gianniotis, N., Pozo Nunez, F., and Polsterer, K.L. (2021).
@@ -8,7 +8,22 @@ In the following examples we apply the PFVG method on observations from the sour
 
 
 # Installation
+This package is implemented in the Julia language. 
 
+A current release of Julia may be downloaded [here](https://julialang.org/).
+
+Apart from cloning, an easy way of using the package is the following:
+
+1 - Add the registry [AINJuliaRegistry](https://github.com/HITS-AIN/AINJuliaRegistry).
+
+2 - Switch into "package mode" with ```]``` and add the package with
+```
+add PFVG_AA2021
+```
+3 - Go back to the REPL (press backspace) and execute:
+```
+using PFVG_AA2021
+```
 
 # Visualize 3C120 light curves
 
