@@ -1,4 +1,4 @@
-using PyPlot, PyCall, Printf, DelimitedFiles
+
 include("mathlc.jl")
 include("setup_for_centroid.jl")
 @pyimport matplotlib.font_manager as fm
