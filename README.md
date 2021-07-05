@@ -1,7 +1,7 @@
 # PFVG_AA2021.jl
 
 Application of the probabilistic flux variation gradient (PFVG) method, as presented
-in Gianniotis, N., Pozo Nunez, F., and Polsterer, K.L. (2021).
+in Gianniotis, N., Pozo Nunez, F., and Polsterer, K.L. (2021). An implementation of the method can be found here [ProbabilisticFluxVariationGradient.jl](https://github.com/HITS-AIN/ProbabilisticFluxVariationGradient.jl).
 
 In the following examples we apply the PFVG method on observations from the source
 3C120. The light curves for 3C120 have been taken from the published work of [Ramolla et al. (2018)](https://www.aanda.org/articles/aa/pdf/2018/12/aa32081-17.pdf).
