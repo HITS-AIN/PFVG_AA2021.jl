@@ -7,10 +7,10 @@ uuid = "79e6a3ab-5dfb-504d-930d-738a2a938a0e"
 version = "3.3.1"
 
 [[ApproximateVI]]
-deps = ["Distributions", "ForwardDiff", "LinearAlgebra", "Optim", "Printf", "ProgressMeter", "PyPlot", "Random", "Statistics"]
-git-tree-sha1 = "7ba9cd69f435552e7d8f5bd65ae42c7f81423f0f"
+deps = ["Distributions", "ForwardDiff", "LinearAlgebra", "Optim", "Printf", "ProgressMeter", "Random", "Statistics"]
+git-tree-sha1 = "fc00f8d35b43574c787257a290f4e6ec84149143"
 uuid = "e67a2193-b68a-469d-be77-24baf3975c82"
-version = "0.1.5"
+version = "0.1.6"
 
 [[ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -100,9 +100,9 @@ version = "1.0.3"
 
 [[DiffRules]]
 deps = ["NaNMath", "Random", "SpecialFunctions"]
-git-tree-sha1 = "214c3fcac57755cfda163d91c58893a8723f93e9"
+git-tree-sha1 = "85d2d9e2524da988bffaf2a381864e20d2dae08d"
 uuid = "b552c78f-8df3-52c6-915a-8e097449b14b"
-version = "1.0.2"
+version = "1.2.1"
 
 [[Distances]]
 deps = ["LinearAlgebra", "Statistics", "StatsAPI"]
@@ -327,9 +327,9 @@ uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 
 [[ProbabilisticFluxVariationGradient]]
 deps = ["ApproximateVI", "Distances", "Distributions", "ForwardDiff", "Interpolations", "LinearAlgebra", "Optim", "PDMats", "Printf", "ProgressMeter", "PyPlot", "Random", "Statistics", "StatsFuns", "Suppressor"]
-git-tree-sha1 = "f0eb8fbc6e44a2527e138255ce0d3a5d4ff3b908"
+git-tree-sha1 = "d5d25a626d9f84ad4a5fb5a72efa875ee8c0c20d"
 uuid = "333a9a01-0e78-4d37-bce2-040f730ab5dc"
-version = "0.1.45"
+version = "0.2.0"
 
 [[ProgressMeter]]
 deps = ["Distributed", "Printf"]
