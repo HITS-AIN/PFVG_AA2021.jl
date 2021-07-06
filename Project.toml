@@ -1,7 +1,7 @@
 name = "PFVG_AA2021"
 uuid = "593bb313-7fc8-446a-96f6-bb1e55a541c0"
 authors = ["Nikos Gianniotis <ngiann@gmail.com> and Francisco Pozo Nunes <francisco.pozon@gmail.com>"]
-version = "0.1.6"
+version = "0.1.7"
 
 [deps]
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
