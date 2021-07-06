@@ -163,20 +163,24 @@ function Check3C120()
     R     = readdlm(lc[3])[:, 1:3]
     I     = readdlm(lc[4])[:, 1:3]
 
-    #select same dates between B and V
-    samet,sflxB,sflxV = mergeTimeSeries(B[:,1]',V[:,1]',B[:,2],V[:,2])
-    sametBV = samet .- mmjd
 
-    #select same dates between B and r
-    samettmp,sflxBr,sflxr = mergeTimeSeries(B[:,1]',R[:,1]',B[:,2],R[:,2])
-    sametBr = samettmp .- mmjd
-    #select same dates between B and z
-    samettmp,sflxBz,sflxz = mergeTimeSeries(B[:,1]',I[:,1]',B[:,2],I[:,2])
-    sametBz = samettmp .- mmjd
+    #select same dates between B and I
+    samet1,sflxB1,sflxI = mergeTimeSeries(B[:,1]',I[:,1]',B[:,2],I[:,2])
+    samet1,EsflxB1,EsflxI = mergeTimeSeries(B[:,1]',I[:,1]',B[:,3],I[:,3])
+    #select same dates between previous selected B and V
+    samet2,sflxB2,sflxV = mergeTimeSeries(samet1',V[:,1]',sflxB1,V[:,2])
+    samet2,EsflxB2,EsflxV = mergeTimeSeries(samet1',V[:,1]',EsflxB1,V[:,3])
+    #select same dates between previous selected B and R
+    samet3,sflxB3,sflxR = mergeTimeSeries(samet2',R[:,1]',sflxB2,R[:,2])
+    samet3,EsflxB3,EsflxR = mergeTimeSeries(samet2',R[:,1]',EsflxB2,R[:,3])
+    #
+    samet,sflxB,sflxI   = mergeTimeSeries(samet3',samet1',sflxB2,sflxI)
+    samet,EsflxB,EsflxI   = mergeTimeSeries(samet3',samet1',EsflxB2,EsflxI)
 
+    samet= samet .- mmjd
 
     #ploting
-    #prop = fm.FontProperties(size=15) --- disabled because of problem with @pyimport
+    # prop = fm.FontProperties(size=15)
     figure(1)
     clf()
 
@@ -192,10 +196,10 @@ function Check3C120()
         legend(loc="upper right")#,prop=prop) --- disabled because of problem with @pyimport
 
     end
-    plot(sametBV,sflxB,ls="", marker="o", ms=8,color="black")
-    plot(sametBV,sflxV,ls="", marker="o", ms=8,color="black")
-    plot(sametBr,sflxr,ls="", marker="o", ms=8,color="black")
-    plot(sametBz,sflxz,ls="", marker="o", ms=8,color="black")
+    plot(samet,sflxB,ls="", marker="o", ms=8,color="black")
+    plot(samet,sflxV,ls="", marker="o", ms=8,color="black")
+    plot(samet,sflxR,ls="", marker="o", ms=8,color="black")
+    plot(samet,sflxI,ls="", marker="o", ms=8,color="black")
     #xlim(0.0,maxday)
     #ylim(3.0,8.0)
     xlabel("Days after MJD"*string(mmjd),fontsize=20)
